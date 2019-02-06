@@ -1,0 +1,77 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.2, pytest-4.1.1, py-1.7.0, pluggy-0.8.1 -- c:\python37\python.exe
+cachedir: .pytest_cache
+rootdir: c:\Users\xrain\AOC\advent-of-code-2016\1, inifile:
+collecting ... collected 1 item
+
+test_day1.py::test_get_visited_blocks FAILED                             [100%]
+
+================================== FAILURES ===================================
+___________________________ test_get_visited_blocks ___________________________
+
+    def test_get_visited_blocks():
+>       assert s.get_all_visited_blocks(example)[0] == {
+            (0,0),(0,1),(0,2),(0,3),(0,4),(0,5),(0,6),(0,7),(0,8),(-1,8),
+            (-2,8),(-3,8),(-4,8),(-4,7),(-4,6),(-4,5),(-4,4),(-3,4),(-2,4),
+            (-1,4)
+            }
+E       assert {(0, 0), (0, ..., (0, 5), ...} == {(-4, 4), (-4,... (-3, 4), ...}
+E         Extra items in the left set:
+E         (6, 4)
+E         (5, 4)
+E         (4, 4)
+E         (1, 4)
+E         (7, 4)
+E         (3, 4)
+E         (2, 4)
+E         (8, 4)
+E         Extra items in the right set:
+E         (-4, 5)
+E         (-2, 4)
+E         (-4, 4)
+E         (-3, 8)
+E         (-3, 4)
+E         (-1, 8)
+E         (-2, 8)
+E         (-4, 8)
+E         (-1, 4)
+E         (-4, 7)
+E         (-4, 6)
+E         Full diff:
+E         + {(-4, 4),
+E         +  (-4, 5),
+E         +  (-4, 6),
+E         +  (-4, 7),
+E         +  (-4, 8),
+E         +  (-3, 4),
+E         +  (-3, 8),
+E         +  (-2, 4),
+E         +  (-2, 8),
+E         +  (-1, 4),
+E         +  (-1, 8),
+E         - {(0, 0),
+E         ? ^
+E         +  (0, 0),
+E         ? ^
+E         (0, 1),
+E         (0, 2),
+E         (0, 3),
+E         (0, 4),
+E         (0, 5),
+E         (0, 6),
+E         (0, 7),
+E         -  (0, 8),
+E         ?        ^
+E         +  (0, 8)}
+E         ?        ^
+E         -  (1, 4),
+E         -  (2, 4),
+E         -  (3, 4),
+E         -  (4, 4),
+E         -  (5, 4),
+E         -  (6, 4),
+E         -  (7, 4),
+E         -  (8, 4)}
+
+test_day1.py:6: AssertionError
+========================== 1 failed in 0.15 seconds ===========================
