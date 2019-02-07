@@ -34,17 +34,29 @@ def part_one(lst):
         position = travel(position, direction, distance)
     return position[0] + position[1]
 
-def visited_blocks(start,stop):
-    if start[0] == stop[0]:
-        distance = stop[1]-start[1]
-        return list(zip([start[0]]*(distance+1),range(distance+1)))
+def coord_range(start,stop):
+    '''Return the proper range of stops given ONE AXIS depending if the 
+    path goes backwards or forwards'''
+    if (stop < start):
+        return range(start,stop-1,-1)
     else:
-        distance = stop[0]-start[0]
-        return list(zip(range(distance+1),[start[1]]*(distance+1)))
+        return range(start,stop+1)
+
+def visited_blocks(start,stop):
+    '''Return a set of all intersections visited when walking from one 
+    block to another'''
+    if start[0] == stop[0]:
+        intersections = coord_range(start[1],stop[1])
+        distance = abs(stop[1]-start[1])+1
+        return set(zip([start[0]]*(distance),intersections))
+    else:
+        intersections = coord_range(start[0],stop[0])
+        distance = abs(stop[0]-start[0])+1
+        return set(zip(intersections,[start[1]]*(distance)))
 
 def get_all_visited_blocks(lst):
-    '''Return the first location visited twice.  Note this does not mean we
-    stopped at it necessarily, just that we walked past that block'''
+    '''Return the first location visited twice.  Note this does not mean 
+    we stopped at it necessarily, just that we walked past that block'''
     position = (0,0) # rise, run
     direction = 0
     stops = set()
