@@ -30,9 +30,29 @@ def part_one(lst):
             total += int(number)
     return total
 
+def shift(char,num):
+    return chr((((ord(char)-97)+num) % 26)+97)
+
+def caesar_cipher(str_,num):
+    words = str_.split('-')
+    result = []
+    for word in words:
+        result.append(''.join([shift(x,num) for x in word]))
+    return ' '.join(result)
+
+def part_two(lst):
+    unencrypted = []
+    for elem in lst:
+        name, number, checksum = elem
+        unencrypted.append((caesar_cipher(name,int(number)),number))
+    return unencrypted
+
 if __name__ == "__main__":
     with open("input.txt") as file:
         text = file.read()
         inputs = parse_input(text)
+        valid_inputs = [x for x in inputs if valid_checksum(x[0],x[2])]
         print(part_one(inputs))
+        print(part_two(valid_inputs))
+
         
