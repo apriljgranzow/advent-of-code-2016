@@ -1,0 +1,12 @@
+============================= test session starts =============================
+platform win32 -- Python 3.7.2, pytest-4.1.1, py-1.7.0, pluggy-0.8.1 -- c:\python37\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\xrain\AOC\advent-of-code-2016\4, inifile:
+collecting ... collected 4 items
+
+test_day4.py::test_top_five_letters PASSED                               [ 25%]
+test_day4.py::test_frequency_string PASSED                               [ 50%]
+test_day4.py::test_valid_checksum PASSED                                 [ 75%]
+test_day4.py::test_part_one PASSED                                       [100%]
+
+========================== 4 passed in 0.19 seconds ===========================
