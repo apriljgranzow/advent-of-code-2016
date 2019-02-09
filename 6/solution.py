@@ -11,9 +11,15 @@ def position_counter(strings):
 def part_one(counter_list):
     return ''.join([str((x.most_common(1))[0][0]) for x in counter_list])
 
+def least_common(counter_dict):
+    return sorted(counter_dict.most_common(),key=lambda x: x[1])[0][0]
 
+def part_two(strings):
+    counter_list = position_counter(strings)
+    return ''.join(([least_common(x) for x in counter_list]))
 
 if __name__ == "__main__":
     with open("input.txt") as file:
         lines = file.read().split()
         print(part_one(position_counter(lines)))
+        print(part_two(lines))
